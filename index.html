@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>登录页</title>
+  <style>
+	  body {
+	  	background-color: #74aabc;
+	      background-image: url(img/h1.jpg);
+	  	background-repeat: no-repeat;
+	  	background-size: cover; 
+	   
+	  }
+	  .center {
+	      text-align: center;
+	  }
+	  
+	  .title {
+	  	margin-top: 120px;
+	  	border-radius: 5px;
+	      display: block;
+	      width: 100%;
+	  	font-size: 70px;
+	  	font-family:华文行楷;
+	  }
+	  .login_form_con {
+	  	width: 400px;
+	  	height: 200px;
+	  	margin: auto;
+	  	margin-top: 80px;
+	  	border-radius: 5px;
+	  	overflow: hidden;
+	  }
+	     
+	  .input_txt {
+	  	width: 300px;
+	  	height: 30px;
+	  	padding-left: 10px;
+	  	margin-top: 20px;
+	  	margin-left: 50px;
+	  }
+	  .input_pass {
+	  	width: 300px;
+	  	height: 30px;
+	  	padding-left: 10px;
+	  	margin-top: 20px;
+	  	margin-left: 50px;
+	  }
+	  .input_sub {
+	  	width: 300px;
+	  	height: 35px;
+	  	width: 300px;
+	  	height: 40px;
+	  	margin-top: 20px;
+	  	margin-left: 58px;
+	  	border-radius: 5px;
+	  	background-color: #64a9d9;
+	  	cursor: pointer;
+	  	color: #fff;
+	  }
+  </style>
+</head>
+<body>
+	<div class="center">
+	      <p class="title">游历杭州西湖</p>
+	    </div>
+<div class="login_form_con">
+	<div class="login_form">
+		<input type="text" class="input_txt" placeholder="用户名"/><br> 
+		<input type="password" class="input_pass" placeholder="密码"/>
+		<input type="submit" class="input_sub" value="登录"/>
+	</div>
+</div>
+<script>
+	// 获取信息
+	let input_txt = document.querySelector('.input_txt');
+	let input_pass = document.querySelector('.input_pass');
+	let input_sub = document.querySelector('.input_sub');
+	
+	// 登录事件
+	input_sub.onclick = function() {
+	    // 获取用户输入的账户、密码
+	    let username = input_txt.value;
+	    let password = input_pass.value;
+	    // 判断输入，账户、密码长度不超过6
+	    if (username.length >= 6 && password.length >= 6) {
+	        alert('登录成功');
+	        // 储存用户数据
+	        localStorage.setItem('username', username);
+	        localStorage.setItem('password', password);
+	        // 登录跳转到其他页面
+	        window.location.href = "https://lwenxue.github.io/west-map/map.html";
+	    } else {
+	        alert('登录失败');
+	    }
+	};
+	
+	// 页面一加载就赋值给表单
+	input_txt.value = localStorage.getItem('username');
+	input_pass.value = localStorage.getItem('password');
+v
+</script>
+</body>
+</html>
